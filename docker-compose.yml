@@ -1,0 +1,22 @@
+version: '3.8'
+
+volumes:
+  mysql_data:
+    driver: local
+    
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bleep
+      MYSQL_USER: herp
+      MYSQL_PASSWORD: derp
+      MYSQL_TCP_PORT: 3308
+    ports:
+    - 3308:3308
+    expose:
+      - 3308
+
